@@ -1,11 +1,7 @@
 describe('Login tests ', () => {
     beforeEach(() => {
         cy.visit('/')
-        Cypress.on('uncaught:exception', (err, runnable) => {
-            // returning false here prevents Cypress from
-            // failing the test
-            return false
-        })
+        
     })
 
     it('go to login page', () => {
