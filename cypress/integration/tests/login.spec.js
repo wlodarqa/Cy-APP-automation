@@ -25,7 +25,7 @@ describe('Login tests ', () => {
         cy.get('.MuiAlert-message').should('be.visible')
         })
 
-        it('login without checbox', () => {
+        it('login without checkbox', () => {
             cy.get('#username').type('wlodarqa')
             cy.get('#password').type('test')
             cy.get('.MuiButton-label').click()
