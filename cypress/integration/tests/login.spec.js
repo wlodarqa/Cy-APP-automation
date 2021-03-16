@@ -1,4 +1,4 @@
-describe('Login tests ', () => {
+describe('Login tests', () => {
     beforeEach(() => {
         cy.visit('/')
         cy.intercept('POST', '/login').as('login');
