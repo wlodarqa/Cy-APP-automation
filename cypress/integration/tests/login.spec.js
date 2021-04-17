@@ -1,4 +1,4 @@
-describe('Login tests ', () => {
+describe('Login tests', () => {
     beforeEach(() => {
         cy.visit('/')
         cy.intercept('POST', '/login').as('login');   
@@ -18,6 +18,9 @@ describe('Login tests ', () => {
         })
 
     it('login with invalid data', () => {
+        cy.get('.makeStyles-root-1').should('be.visible') 
+     })
+     it('login with invalid data', () => {
         cy.get('#username').type('wrong name')
         cy.get('#password').type('wrong password')
         cy.get('[type="checkbox"]').check()
@@ -32,4 +35,5 @@ describe('Login tests ', () => {
             cy.wait(2000)
             cy.get('.makeStyles-root-1').should('not.be.visible')
             })
+
     })
