@@ -19,7 +19,7 @@ describe('Login tests', () => {
             .wait('@login').then(intercept => {
             cy.log(intercept)
         })
-            .get('.makeStyles-root-1').should('be.visible')
+            cy.get('.makeStyles-root-1').should('be.visible')
         })
     it('login without checkbox', () => {
         cy.login_checkbox('username', 'password')
