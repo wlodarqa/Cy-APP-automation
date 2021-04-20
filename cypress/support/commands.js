@@ -24,34 +24,18 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 Cypress.Commands.add('login', (username, password) => {
-    cy.clearCookies()
-    cy.clearLocalStorage()
     cy.fixture('user').then(user => {
         const username = user.id 
         const password = user.password
     cy.get('#username').type(username)
-        .get('#password').type(password)
-        .get('.MuiButton-label').click()
+    cy.get('#password').type(password)
+        
 })
 })
-Cypress.Commands.add('invalid_login', (wrong_username, wrong_password) => {
-    cy.clearCookies()
-    cy.clearLocalStorage()
+Cypress.Commands.add('invalidLogin', (wrong_username, wrong_password) => {
     cy.get('#username').type('wrong name')
-        cy.get('#password').type('wrong password')
-        cy.get('[type="checkbox"]').check()
-        cy.get('.MuiButton-label').click()
-        cy.get('.MuiAlert-message').should('be.visible')
+    cy.get('#password').type('wrong password')
+    cy.get('.MuiButton-label').click()
+    cy.get('.MuiAlert-message').should('be.visible')
 })
-Cypress.Commands.add('login_checkbox', (username, password) => {
-    cy.clearCookies()
-    cy.clearLocalStorage()
-    cy.fixture('user').then(user => {
-        const username = user.id 
-        const password = user.password
-    cy.get('#username').type(username)
-        .get('#password').type(password)
-        .get('[type="checkbox"]').check()
-        .get('.MuiButton-label').click()
-})
-})
+
