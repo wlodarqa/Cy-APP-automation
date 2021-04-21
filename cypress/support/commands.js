@@ -23,19 +23,14 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
-Cypress.Commands.add('login', (username, password) => {
-    cy.fixture('user').then(user => {
-        const username = user.id 
-        const password = user.password
+Cypress.Commands.add('login', (username, password, remember = false) => {
     cy.get('#username').type(username)
     cy.get('#password').type(password)
-        
+    if (remember) {
+        cy.get('[type="checkbox"]').check()
+    }
+    cy.get('.MuiButton-label').click()   
+
 })
-})
-Cypress.Commands.add('invalidLogin', (wrong_username, wrong_password) => {
-    cy.get('#username').type('wrong name')
-    cy.get('#password').type('wrong password')
-    cy.get('.MuiButton-label').click()
-    cy.get('.MuiAlert-message').should('be.visible')
-})
+
 
