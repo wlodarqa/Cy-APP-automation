@@ -23,3 +23,14 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+Cypress.Commands.add('login', (username, password, remember = false) => {
+    cy.get('#username').type(username)
+    cy.get('#password').type(password)
+    if (remember) {
+        cy.get('[type="checkbox"]').check()
+    }
+    cy.get('.MuiButton-label').click()   
+
+})
+
+
