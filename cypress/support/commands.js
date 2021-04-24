@@ -36,3 +36,8 @@ Cypress.Commands.add('payment', (amount, topic) => {
     cy.get('#transaction-create-description-input').type(topic)
     cy.get('.MuiButton-label').contains('Pay').click()
 })
+Cypress.Commands.add('requestPay', (amount, topic) => {
+    cy.get('#amount').type(amount)
+    cy.get('#transaction-create-description-input').type(topic)
+    cy.get('.MuiButton-label').contains('Request').click()
+})
