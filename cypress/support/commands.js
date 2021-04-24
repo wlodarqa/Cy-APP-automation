@@ -30,7 +30,9 @@ Cypress.Commands.add('login', (username, password, remember = false) => {
         cy.get('[type="checkbox"]').check()
     }
     cy.get('.MuiButton-label').click()   
-
 })
-
-
+Cypress.Commands.add('payment', (amount, topic) => {
+    cy.get('#amount').type(amount)
+    cy.get('#transaction-create-description-input').type(topic)
+    cy.get('.MuiButton-label').contains('Pay').click()
+})
